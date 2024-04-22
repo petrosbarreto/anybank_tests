@@ -1,5 +1,6 @@
 class Account {
   final int number;
+  final String name;
   final String cpf;
   double balance;
 
@@ -7,6 +8,7 @@ class Account {
     required this.number,
     required this.cpf,
     required this.balance,
+    required this.name,
   });
 
   void transfer(double amount) {

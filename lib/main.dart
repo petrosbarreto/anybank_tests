@@ -12,7 +12,11 @@ const AnyBank({ Key? key }) : super(key: key);
   Widget build(BuildContext context){
     return MaterialApp(
       title: "AnyBank",
-      theme: ThemeData.light(),
+      theme: ThemeData(
+        colorSchemeSeed: const Color(0xFF6BD1FF),
+        useMaterial3: true,
+        brightness: Brightness.light,
+      ),
       home: Dashboard(),
     );
   }

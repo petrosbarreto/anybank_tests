@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_tdd/components/account_actions.dart';
 import 'package:flutter_tdd/components/last_transactions.dart';
 import 'package:flutter_tdd/components/logo.dart';
+import 'package:flutter_tdd/screens/charge.dart';
+import 'package:flutter_tdd/screens/transfer.dart';
 import 'package:flutter_tdd/utils/constants.dart';
 
 class Dashboard extends StatelessWidget {
@@ -46,17 +49,17 @@ class Dashboard extends StatelessWidget {
                   color: AppColors.card,
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: const Column(
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                       Text("Conta corrente", style: TextStyle(fontSize: 16.0),),
                       Icon(Icons.keyboard_arrow_right)
                       ],
                     ),
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.only(bottom: 32.0),
                       child: Text(
                         "R\$ 880.67",
@@ -66,10 +69,26 @@ class Dashboard extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        AccountActions(text: "Transferir", icon: Icons.account_balance_wallet),
-                        AccountActions(text: "Depositar", icon: Icons.payments),
-                        AccountActions(text: "Cartões", icon: Icons.credit_card),
-                        AccountActions(text: "Recarga", icon: Icons.phone_iphone),
+                        GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (_) => Transfer()));
+                            },
+                            child: const AccountActions(
+                                text: "Transferir",
+                                icon: Icons.account_balance_wallet)),
+                        GestureDetector(
+                            onTap: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(
+                                      builder: (_) => Charge()));
+                            },
+                            child: const AccountActions(
+                                text: "Cobrar", icon: Icons.payments)),
+                        const AccountActions(text: "Cartões", icon: Icons.credit_card),
+                        const AccountActions(text: "Recarga", icon: Icons.phone_iphone),
                       ],
                     ),
                   ],

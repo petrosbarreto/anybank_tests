@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tdd/components/buttons.dart';
+import 'package:flutter_tdd/screens/dashboard.dart';
 
 class Transfer extends StatelessWidget {
   Transfer({super.key});
@@ -13,7 +14,7 @@ class Transfer extends StatelessWidget {
         title: const Text("Transferência"),
       ),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 32.0),
+        padding: const EdgeInsets.fromLTRB(24.0, 16.0, 24.0, 32.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
@@ -46,7 +47,9 @@ class Transfer extends StatelessWidget {
                         padding: const EdgeInsets.only(right: 8.0),
                         child: PrimaryButton(text: "Continuar", onTap: (){}),
                       ),
-                      SecondaryButton(text: "Cancelar", onTap: (){}),
+                      SecondaryButton(text: "Cancelar", onTap: (){
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const Dashboard()));
+                      }),
                     ],
                   ),
                 ),

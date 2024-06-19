@@ -31,6 +31,7 @@ class Dashboard extends StatelessWidget {
                       Text(
                         "Olá, Matheus!",
                         style: TextStyle(fontSize: 28),
+                        key: const Key('tituloNome')
                       ),
                       Icon(
                         Icons.notifications_outlined,

@@ -2,7 +2,7 @@ import 'package:flutter_tdd/models/account.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  group("Testes de transferência", () {
+  group("Testes de transferência 1", () {
     test("Testa uma transferência", () {
       final Account account = Account(number: 123, cpf: "322.123.123-22", balance: 100.0, name: "Beto");
 
